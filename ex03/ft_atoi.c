@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:58:15 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/04 23:14:37 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/09 07:29:37 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ void	ft_str_converter(char str, int *res, int *lock)
 
 void	ft_signs_and_spaces(char str, int *i, int *sign)
 {
-	if (str == 32)
-		i++;
-	if (str == 43)
+	if (str == 43 || str == 45)
 	{
-		*sign = *sign + 1;
+		if (str == 43)
+			*sign = *sign + 1;
+		if (str == 45)
+			*sign = *sign - 1;
 		i++;
 	}
-	if (str == 45)
-	{
-		*sign = *sign - 1;
+	else if (
+		(str >= 0 && str <= 47)
+		|| (str >= 91 && str <= 96)
+		|| (str >= 123 && str <= 126)
+	)
 		i++;
-	}
-	// *******************//
-	// take care of other char
 }
 
 int	ft_atoi(char *str)
@@ -70,15 +70,5 @@ int	ft_atoi(char *str)
 		return (-res);
 	if (res != 0)
 		return (res);
-	return (0);
-}
-
-int	main(int argc, char *argv[])
-{
-	// char strn[] = "1234";
-	// char strn[] = "str";
-	// char strn[] = "  ---+--+1234ab567";
-	if (argc > 1)
-		printf("%d",ft_atoi(argv[1]));
 	return (0);
 }
