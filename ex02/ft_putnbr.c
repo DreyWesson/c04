@@ -6,12 +6,17 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:18:35 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/04 12:52:34 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:11:33 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #define MAX 100
+
+// void	ft_putchar(char c);
+// void	ft_large_num(void);
+// void	ft_neg_num(int nb);
+// void	ft_putnbr(int nb);
 
 void	ft_putchar(char c)
 {
@@ -20,34 +25,28 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
-	int	rem;
-	int	i;
-	int	j;
-	int	arr[MAX];
-
-	i = 0;
-	if (nb < 0)
+	if (nb == -2147483648)
 	{
-		ft_putchar ('-');
-		nb = -nb;
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
 	}
-	while (nb > 0)
+	else if (nb < 0)
 	{
-		rem = nb % 10;
-		arr[i] = rem ;
-		i++;
-		nb = nb / 10;
+		ft_putchar('-');
+		ft_putnbr(-nb);
 	}
-	j = i - 1;
-	while (j > -1)
+	else if (nb > 9)
 	{
-		ft_putchar ((char)(arr[j]) + '0');
-		j--;
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
+	else
+		ft_putchar(nb + '0');
 }
 
 // int main(void)
 // {
-// 	ft_putnbr(-42);
+// 	ft_putnbr(2147483648);
 // 	return (0);
 // }

@@ -6,11 +6,9 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:58:15 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/09 07:29:37 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:35:37 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_is_num(char str)
 {
@@ -46,6 +44,12 @@ void	ft_signs_and_spaces(char str, int *i, int *sign)
 		i++;
 }
 
+int	ft_neg_num(int res)
+{
+	res *= -1;
+	return (res);
+}
+
 int	ft_atoi(char *str)
 {
 	int	i;
@@ -67,8 +71,16 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	if (sign < 0 && res != 0)
-		return (-res);
+		return (ft_neg_num(res));
 	if (res != 0)
 		return (res);
 	return (0);
 }
+
+// #include <stdio.h>
+// int main(int argc, char *argv[])
+// {
+// 	if (argc > 1)
+// 		printf("%i",ft_atoi(argv[1]));
+// 	return (0);
+// }
