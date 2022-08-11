@@ -6,81 +6,39 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:58:15 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/10 09:46:11 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:08:23 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_num(char str)
+int	ft_atoi(const char *str)
 {
-	if (str >= 48 && str <= 57)
-		return (1);
-	return (0);
-}
-
-void	ft_str_converter(char str, int *res, int *lock)
-{
-	if (ft_is_num(str) == 1)
-	{
-		*lock = 1;
-		*res = (str - '0') + ((*res) * 10);
-	}
-}
-
-void	ft_signs_and_spaces(char str, int *i, int *sign)
-{
-	if (str == 43 || str == 45)
-	{
-		if (str == 43)
-			*sign = *sign + 1;
-		if (str == 45)
-			*sign = *sign - 1;
-		i++;
-	}
-	else if (
-		(str >= 0 && str <= 47)
-		|| (str >= 91 && str <= 96)
-		|| (str >= 123 && str <= 126)
-	)
-		i++;
-}
-
-int	ft_neg_num(int res)
-{
-	res *= -1;
-	return (res);
-}
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	res;
-	int	lock;
-	int	sign;
+	long	i;
+	long	nbr;
+	int		is_neg;
 
 	i = 0;
-	lock = 0;
-	res = 0;
-	while (str[i] != '\0')
+	nbr = 0;
+	is_neg = 0;
+	while (str[i] != '\0' && (!(str[i] >= '0' && str[i] <= '9')))
 	{
-		if (lock == 1 && ft_is_num(str[i]) != 1)
-			break ;
-		ft_signs_and_spaces(str[i], &i, &sign);
-		if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-			break ;
-		ft_str_converter(str[i], &res, &lock);
+		if (str[i] == '-')
+			is_neg = 1;
 		i++;
 	}
-	if (sign < 0 && res != 0)
-		return (ft_neg_num(res));
-	if (res != 0)
-		return (res);
-	return (0);
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		nbr = (nbr * 10) + (str[i] - '0');
+		i++;
+	}
+	if (is_neg == 1)
+		return (-nbr);
+	return (nbr);
 }
 
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-	if (argc > 1)
-		printf("%i",ft_atoi(argv[1]));
-	return (0);
-}
+// #include <stdio.h>
+// int main(int argc, char *argv[])
+// {
+// 	if (argc > 1)
+// 		printf("%i",ft_atoi(argv[1]));
+// 	return (0);
+// }
