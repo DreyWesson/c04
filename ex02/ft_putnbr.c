@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:18:35 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/10 08:11:33 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/10 09:41:02 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_putnbr(int nb)
 		ft_putchar(nb + '0');
 }
 
-// int main(void)
-// {
-// 	ft_putnbr(2147483648);
-// 	return (0);
-// }
+int main(void)
+{
+	ft_putnbr(-2147483648);
+	return (0);
+}

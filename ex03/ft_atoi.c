@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:58:15 by doduwole          #+#    #+#             */
-/*   Updated: 2022/08/10 08:35:37 by doduwole         ###   ########.fr       */
+/*   Updated: 2022/08/10 09:46:11 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int	ft_atoi(char *str)
 	return (0);
 }
 
-// #include <stdio.h>
-// int main(int argc, char *argv[])
-// {
-// 	if (argc > 1)
-// 		printf("%i",ft_atoi(argv[1]));
-// 	return (0);
-// }
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+	if (argc > 1)
+		printf("%i",ft_atoi(argv[1]));
+	return (0);
+}
